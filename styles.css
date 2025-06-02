@@ -1,0 +1,375 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #000000;
+    --secondary-color: #184d17;
+    --accent-color: #f39c12;
+    --text-color: #2c3e50;
+    --light-gray: #ecf0f1;
+    --dark-gray: #7f8c8d;
+    --white: #ffffff;
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease-in-out;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-gray);
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Hero section */
+.hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+}
+
+.hero .container {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+/* Header styles */
+header {
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--white);
+}
+
+.divider {
+    height: 4px;
+    width: 80px;
+    background-color: var(--accent-color);
+    margin: 1rem auto;
+    border-radius: 2px;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* Paper info section */
+.paper-info {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.paper-info h2 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.author-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.authors {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.affiliation {
+    font-style: italic;
+    color: var(--dark-gray);
+    font-size: 1.1rem;
+}
+
+/* Abstract section */
+.abstract {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.abstract h2 {
+    font-family: 'Roboto Slab', serif;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    position: relative;
+    display: inline-block;
+}
+
+.abstract h2:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+}
+
+.abstract-content {
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+/* Section containers */
+.section-container {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2.5rem;
+    box-shadow: var(--shadow);
+}
+
+.section-container h2 {
+    font-family: 'Roboto Slab', serif;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.section-description {
+    text-align: center;
+    max-width: 800px;
+    margin: 1.5rem auto;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Video grid and containers */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.video-container {
+    transition: var(--transition);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--white);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.video-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.video-container h3 {
+    padding: 1rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    background-color: #000;
+}
+
+.video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-description {
+    padding: 1rem;
+    color: #444444;
+    font-size: 0.95rem;
+    background-color: var(--white);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    text-align: center;
+    width: 100%;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #34495e;
+    text-shadow: 0px 0px 1px rgba(0,0,0,0.05);
+}
+
+/* Specific section styling variations */
+.section-container:nth-of-type(3) {
+    border-top: 4px solid var(--accent-color);
+}
+
+/* Removing different colors for video headers in different sections */
+/* 
+.section-container:nth-of-type(4) .video-container h3 {
+    background-color: var(--secondary-color);
+}
+
+.section-container:nth-of-type(5) .video-container h3 {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.section-container:nth-of-type(6) .video-container h3 {
+    background-color: #333;
+}
+
+.section-container:nth-of-type(7) .video-container h3 {
+    background-color: #444;
+}
+*/
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    color: var(--dark-gray);
+    font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    .paper-info h2 {
+        font-size: 1.8rem;
+    }
+    
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .abstract-content {
+        font-size: 1rem;
+    }
+    
+    .section-description {
+        font-size: 1rem;
+    }
+}
+
+/* Ablation subsections */
+.ablation-subsection {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px dashed #e0e0e0;
+}
+
+.ablation-subsection:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.subsection-title {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin: 2rem 0 1rem;
+    padding-left: 1rem;
+    border-left: 4px solid var(--accent-color);
+}
+
+.subsection-description {
+    font-size: 1.05rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    padding-left: 1rem;
+    max-width: 900px;
+}
+
+/* Math formula styling */
+.math-formula {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 1.05em;
+    background-color: rgba(245, 245, 245, 0.7);
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 4px 0;
+    letter-spacing: 0.5px;
+}
+
+.math-formula sub {
+    font-size: 65%;
+    position: relative;
+    bottom: -0.4em;
+    left: -1px;
+    margin-right: 2px;
+}
+
+/* Parameter styling for [N=1] type notations */
+.param {
+    font-family: 'Consolas', 'Monaco', monospace;
+    background-color: #2d3748;
+    color: #38b2ac;
+    padding: 1px 4px;
+    margin: 0 3px;
+    border-radius: 3px;
+    font-size: 0.75em;
+    font-weight: 500;
+    display: inline-block;
+    border: none;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.25px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+    text-shadow: none;
+    transition: all 0.2s ease;
+}
+
+.param:hover {
+    background-color: #1a202c;
+    color: #4fd1c5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+} 
