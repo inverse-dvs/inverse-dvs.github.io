@@ -24,15 +24,80 @@
                 font-size: 1.4rem;
             }
         }
+
+        /* Title wrapper for badge positioning */
+        .title-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Venue badge styling */
+        .venue-badge {
+            position: absolute;
+            top: 50%;
+            right: -140px;
+            transform: translateY(-50%) rotate(8deg);
+            background: linear-gradient(145deg, #f6d365 0%, #fda085 100%);
+            color: #5c3d1e;
+            font-family: 'Roboto Slab', serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            padding: 8px 18px;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+            white-space: nowrap;
+            z-index: 10;
+        }
+
+        @media (max-width: 1100px) {
+            .venue-badge {
+                position: relative;
+                top: 0;
+                right: 0;
+                transform: none;
+                display: inline-block;
+                margin-top: 12px;
+            }
+            .title-wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- More Research Dropdown -->
+    <nav class="top-nav">
+        <div class="more-research-dropdown">
+            <button class="more-research-btn" onclick="toggleResearchDropdown()">
+                More Research
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </button>
+            <div class="research-dropdown-menu" id="researchDropdown">
+                <a href="https://infinity-rope.github.io/" target="_blank">∞-RoPE <span class="venue-tag">Preprint 2026</span></a>
+                <a href="https://lorashop.github.io/" target="_blank">LoRAShop <span class="venue-tag">NeurIPS 2025</span></a>
+                <a href="https://motionflow-diffusion.github.io/" target="_blank">MotionFlow <span class="venue-tag">AAAI 2026</span></a>
+                <a href="https://stylebreeder.github.io/" target="_blank">StyleBreeder <span class="venue-tag">NeurIPS 2024</span></a>
+                <a href="https://rave-video.github.io/" target="_blank">RAVE <span class="venue-tag">CVPR 2024</span></a>
+            </div>
+        </div>
+    </nav>
+    
     <div class="hero">
         <div class="container">
             <header>
-                <h1>Dynamic View Synthesis as an Inverse Problem</h1>
+                <div class="title-wrapper">
+                    <h1>Dynamic View Synthesis as an Inverse Problem</h1>
+                    <div class="venue-badge">NeurIPS 2025</div>
+                </div>
                 <div class="divider"></div>
-                <p class="subtitle">Hidir Yesiltepe, Pinar Yanardag</p>
+                <p class="subtitle">
+                    <a href="https://yesiltepe-hidir.github.io/" target="_blank">Hidir Yesiltepe</a>, <a href="https://pinguar.org/" target="_blank">Pinar Yanardag</a>
+                </p>
                 <p class="subtitle">Virginia Tech</p>
             <div class="button-container">
                 <a href="https://arxiv.org/pdf/2506.08004" class="rounded-button" target="_blank">
@@ -51,6 +116,12 @@
                         <path fill="currentColor" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
                     </svg>
                     Code
+                </a>
+                <a href="https://x.com/d_yesiltepe/status/1932521753236156612" class="rounded-button" target="_blank">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                        <path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                    Thread
                 </a>
             </div>
             <style>
@@ -83,6 +154,18 @@
                 .rounded-button svg {
                     width: 20px;
                     height: 20px;
+                }
+                
+                .subtitle a {
+                    color: var(--white, #fff);
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+                    border-bottom: 1px solid transparent;
+                }
+                
+                .subtitle a:hover {
+                    color: var(--accent-color, #f39c12);
+                    border-bottom: 1px solid var(--accent-color, #f39c12);
                 }
                 
                 @media (max-width: 768px) {
@@ -263,345 +346,128 @@
         }
     </style>
     
-    <!-- Section-aware space bar control for videos -->
+    <!-- Video control script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Cache all videos
-            const videos = document.querySelectorAll('video');
-            const videoContainers = document.querySelectorAll('.video-container');
-            const sections = document.querySelectorAll('.section-container');
-            let isPlaying = false; // Start with videos paused
-            let currentSection = null;
-            let previousSection = null; // Track previous section to handle transitions
+            // Get sections
+            const qualitativeSection = document.querySelector('.qualitative-section');
+            const comparisonSection = document.querySelector('.comparison-section');
             
-            // Get the teaser video specifically
-            const teaserVideo = document.querySelector('.teaser-video video');
-            const soundToggle = document.querySelector('.sound-toggle');
-            
-            // IMMEDIATELY start teaser video - highest priority
-            if (teaserVideo) {
-                // Start with video unmuted (sound on by default)
-                teaserVideo.muted = false;
-                
-                // Initialize sound toggle button state
-                if (soundToggle) {
-                    soundToggle.classList.add('unmuted'); // Start with unmuted state
-                    
-                    // Add click handler for sound toggle
-                    soundToggle.addEventListener('click', (e) => {
-                        e.stopPropagation(); // Prevent event bubbling
-                        
-                        if (teaserVideo.muted) {
-                            // Unmute the video
-                            teaserVideo.muted = false;
-                            soundToggle.classList.add('unmuted');
-                            console.log("Teaser video unmuted by user");
-                        } else {
-                            // Mute the video
-                            teaserVideo.muted = true;
-                            soundToggle.classList.remove('unmuted');
-                            console.log("Teaser video muted by user");
-                        }
-                    });
-                }
-                
-                // Force immediate play with multiple attempts
-                const startTeaserVideo = () => {
-                    teaserVideo.play().catch(error => {
-                        console.log("Teaser auto-play attempt failed:", error);
-                        // If autoplay with sound fails, try muted as fallback
-                        if (!teaserVideo.muted) {
-                            console.log("Trying teaser video muted as fallback...");
-                            teaserVideo.muted = true;
-                            if (soundToggle) {
-                                soundToggle.classList.remove('unmuted');
-                            }
-                            teaserVideo.play().catch(mutedError => {
-                                console.log("Teaser auto-play muted also failed:", mutedError);
-                                // Retry after a short delay
-                                setTimeout(startTeaserVideo, 100);
-                            });
-                        } else {
-                            // Already muted and still failing, retry
-                            setTimeout(startTeaserVideo, 100);
-                        }
-                    });
-                };
-                
-                // Start immediately
-                startTeaserVideo();
-                
-                // Additional attempts to ensure it starts
-                setTimeout(startTeaserVideo, 50);
-                setTimeout(startTeaserVideo, 200);
-                setTimeout(startTeaserVideo, 500);
-                
-                // Continuous monitoring to ensure teaser video keeps playing
-                setInterval(() => {
-                    if (teaserVideo.paused) {
-                        // Try to restart with current mute state
-                        teaserVideo.play().catch(error => {
-                            console.log("Teaser video restart blocked:", error);
-                        });
-                    }
-                }, 1000); // Check every second
-                
-                // Prevent teaser video from being paused by any external events
-                teaserVideo.addEventListener('pause', () => {
-                    setTimeout(() => {
-                        teaserVideo.play().catch(error => {
-                            console.log("Teaser video auto-restart blocked:", error);
-                        });
-                    }, 10); // Very fast restart
-                });
-                
-                // Additional safety: ensure teaser plays when page becomes visible
-                document.addEventListener('visibilitychange', () => {
-                    if (!document.hidden && teaserVideo.paused) {
-                        teaserVideo.play().catch(error => {
-                            console.log("Teaser video visibility restart blocked:", error);
-                        });
-                    }
-                });
+            // Helper: check if video is in teaser or film strip
+            function isSpecialVideo(video) {
+                return video.closest('.film-strip') !== null || video.closest('.teaser-video') !== null;
             }
             
-            // Initialize all other videos (not teaser or film strip) as paused
-            videos.forEach(video => {
-                // Check if video is in teaser or film strip section
-                const isTeaserVideo = video.closest('.teaser-video') !== null;
-                const isFilmStripVideo = video.closest('.film-strip') !== null;
-                
-                if (isTeaserVideo) {
-                    // Teaser video is handled above - ensure it's playing but preserve mute state
-                    video.play().catch(e => console.log("Teaser video play failed:", e));
-                } else if (isFilmStripVideo) {
-                    // Film strip videos should be muted and playing
-                    video.muted = true;
-                    video.play().catch(error => {
-                        console.log("Film strip auto-play blocked:", error);
-                    });
-                } else {
-                    // All other videos start paused and muted
-                    video.muted = true;
-                    video.pause();
-                }
-            });
-            
-            // Show initial play hint only for non-teaser/non-strip videos
-            videoContainers.forEach(container => {
-                const isTeaserOrStrip = container.closest('.teaser') !== null || container.closest('.film-strip') !== null;
-                if (!isTeaserOrStrip) {
-                    container.classList.add('paused');
-                }
-            });
-            
-            // Initialize play/pause state based on video state
-            videos.forEach(video => {
-                const container = video.closest('.video-container');
-                if (container && !video.closest('.film-strip') && !video.closest('.teaser-video')) {
-                    // Set up event listeners to update UI based on video state
-                    video.addEventListener('play', () => {
-                        container.classList.remove('paused');
-                        container.classList.add('playing');
-                        setTimeout(() => {
-                            container.classList.remove('playing');
-                        }, 1000);
-                    });
-                    
-                    video.addEventListener('pause', () => {
-                        container.classList.remove('playing');
-                        container.classList.add('paused');
-                    });
-                }
-            });
-            
-            // Show hint message that space starts playback
-            const hintElement = document.createElement('div');
-            hintElement.className = 'play-hint';
-            hintElement.innerHTML = 'Press <kbd>Space</kbd> to play/pause videos';
-            document.querySelector('.teaser-section').before(hintElement);
-            
-            // Function to determine which section is most visible in the viewport
-            function getMostVisibleSection() {
-                let maxVisibleArea = 0;
-                let mostVisibleSection = null;
-                
-                sections.forEach(section => {
-                    const rect = section.getBoundingClientRect();
-                    const windowHeight = window.innerHeight;
-                    
-                    // Calculate how much of the section is visible
-                    const visibleHeight = Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0);
-                    const visibleArea = visibleHeight > 0 ? visibleHeight * rect.width : 0;
-                    
-                    if (visibleArea > maxVisibleArea) {
-                        maxVisibleArea = visibleArea;
-                        mostVisibleSection = section;
-                    }
-                });
-                
-                return mostVisibleSection;
-            }
-            
-            // Helper functions
-            function pauseSectionVideos(section) {
+            // Helper: pause all videos in a section
+            function pauseSection(section) {
                 if (!section) return;
-                
-                // Get all videos in the section
-                const sectionVideos = section.querySelectorAll('video');
-                const sectionContainers = section.querySelectorAll('.video-container');
-                
-                sectionVideos.forEach(video => {
-                    const isFilmStrip = video.closest('.film-strip') !== null;
-                    const isTeaserVideo = video.closest('.teaser-video') !== null;
-                    
-                    // Never pause teaser or film strip videos
-                    if (!isFilmStrip && !isTeaserVideo) {
+                section.querySelectorAll('video').forEach(video => {
+                    if (!isSpecialVideo(video)) {
                         video.pause();
                     }
                 });
+            }
+            
+            // Helper: pause all controllable sections
+            function pauseAllControlledSections() {
+                pauseSection(qualitativeSection);
+                pauseSection(comparisonSection);
+            }
+            
+            // === TEASER VIDEO - Always plays ===
+            const teaserVideo = document.querySelector('.teaser-video video');
+            const soundToggle = document.querySelector('.sound-toggle');
+            
+            if (teaserVideo) {
+                teaserVideo.muted = false;
+                if (soundToggle) soundToggle.classList.add('unmuted');
                 
-                sectionContainers.forEach(container => {
-                    const isFilmStrip = container.closest('.film-strip') !== null;
-                    const isTeaserVideo = container.closest('.teaser-video') !== null;
-                    
-                    // Never pause teaser or film strip video containers
-                    if (!isFilmStrip && !isTeaserVideo) {
-                        container.classList.remove('playing');
-                        container.classList.add('paused');
-                    }
+                teaserVideo.play().catch(() => {
+                    teaserVideo.muted = true;
+                    if (soundToggle) soundToggle.classList.remove('unmuted');
+                    teaserVideo.play().catch(() => {});
                 });
                 
-                if (section === currentSection) {
-                    isPlaying = false;
+                if (soundToggle) {
+                    soundToggle.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        teaserVideo.muted = !teaserVideo.muted;
+                        soundToggle.classList.toggle('unmuted', !teaserVideo.muted);
+                    });
                 }
             }
             
-            function playSectionVideos(section) {
-                if (!section) return;
-                
-                // Get all videos in the section
-                const sectionVideos = section.querySelectorAll('video');
-                const sectionContainers = section.querySelectorAll('.video-container');
-                
-                // Play videos based on conditions
-                sectionVideos.forEach(video => {
-                    const isTeaserVideo = video.closest('.teaser-video') !== null;
-                    const isFilmStripVideo = video.closest('.film-strip') !== null;
-                    
-                    if (isTeaserVideo) {
-                        // ALWAYS ensure teaser video is playing but preserve sound settings
-                        video.play().catch(e => console.log("Couldn't play teaser video:", e));
-                    } else if (isFilmStripVideo) {
-                        // Always play film strip videos
-                        video.muted = true;
-                        video.play().catch(e => console.log("Couldn't play film strip video:", e));
-                    } else if (isPlaying) {
-                        // Play other videos only when space bar is activated
-                        video.muted = true;
-                        video.play().catch(e => console.log("Couldn't play video:", e));
-                    }
-                });
-                
-                // Hide the hint after first play
-                if (isPlaying) {
-                    document.querySelector('.play-hint').style.opacity = '0';
-                    setTimeout(() => {
-                        document.querySelector('.play-hint').style.display = 'none';
-                    }, 500);
-                }
-            }
-            
-            // Update current section on scroll and pause videos in non-visible sections
-            function updateCurrentSection() {
-                previousSection = currentSection;
-                currentSection = getMostVisibleSection();
-                
-                // If section changed, pause videos in previous section and handle the new section
-                if (previousSection && previousSection !== currentSection) {
-                    pauseAllNonVisibleSectionVideos();
-                    
-                    // If videos were playing in previous section, auto-play in new section
-                    if (isPlaying) {
-                        playSectionVideos(currentSection);
-                    }
-                }
-                
-                // Always ensure teaser video is playing after section updates
-                if (teaserVideo && teaserVideo.paused) {
-                    teaserVideo.play().catch(e => console.log("Couldn't restart teaser video after section update:", e));
-                }
-            }
-            
-            // Pause videos in all sections except current
-            function pauseAllNonVisibleSectionVideos() {
-                sections.forEach(section => {
-                    if (section !== currentSection) {
-                        pauseSectionVideos(section);
-                    }
-                });
-                
-                // Always ensure teaser video is playing after pausing other sections
-                if (teaserVideo && teaserVideo.paused) {
-                    teaserVideo.play().catch(e => console.log("Couldn't restart teaser video after pausing sections:", e));
-                }
-            }
-            
-            // Initialize current section
-            updateCurrentSection();
-            
-            // Force play teaser and film strip videos immediately after initialization
-            setTimeout(() => {
-                if (teaserVideo && teaserVideo.paused) {
-                    teaserVideo.play().catch(e => console.log("Couldn't start teaser video after init:", e));
-                }
-                
-                // Also ensure film strip videos are playing
-                const filmStripVideos = document.querySelectorAll('.film-strip video');
-                filmStripVideos.forEach(video => {
-                    if (video.paused) {
-                        video.play().catch(e => console.log("Couldn't start film strip video:", e));
-                    }
-                });
-            }, 100);
-            
-            pauseAllNonVisibleSectionVideos(); // Initially pause all videos in non-visible sections
-            
-            // Update current section when scrolling with throttling
-            let scrollTimeout;
-            window.addEventListener('scroll', function() {
-                if (!scrollTimeout) {
-                    scrollTimeout = setTimeout(function() {
-                        updateCurrentSection();
-                        scrollTimeout = null;
-                    }, 100); // 100ms throttle
-                }
+            // === FILM STRIP VIDEOS - Always play muted ===
+            document.querySelectorAll('.film-strip video').forEach(video => {
+                video.muted = true;
+                video.play().catch(() => {});
             });
             
-            // Space bar control
-            document.addEventListener('keydown', function(event) {
-                // Check if space bar is pressed
-                if (event.code === 'Space' || event.key === ' ') {
-                    // Prevent page scroll
-                    event.preventDefault();
-                    
-                    // Update current section before toggling playback
-                    updateCurrentSection();
-                    
-                    // Toggle play/pause for current section videos (excluding teaser and film strip)
-                    if (isPlaying) {
-                        pauseSectionVideos(currentSection);
+            // === OTHER VIDEOS - Use IntersectionObserver for lazy loading ===
+            // Videos with preload="none" won't load until they're visible
+            const lazyVideos = document.querySelectorAll('video[preload="none"]');
+            
+            const videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const video = entry.target;
+                    if (entry.isIntersecting) {
+                        // Video is in viewport - load and prepare it (but keep paused)
+                        if (video.preload === 'none') {
+                            video.preload = 'metadata';
+                            video.load();
+                        }
                     } else {
-                        isPlaying = true;
-                        pauseAllNonVisibleSectionVideos(); // Ensure other sections are paused
-                        playSectionVideos(currentSection);
+                        // Video left viewport - pause it
+                        video.pause();
+                    }
+                });
+            }, {
+                rootMargin: '100px', // Start loading slightly before visible
+                threshold: 0.1
+            });
+            
+            lazyVideos.forEach(video => {
+                video.muted = true;
+                videoObserver.observe(video);
+            });
+            
+            // === CONTROL BUTTONS ===
+            document.querySelectorAll('.control-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const action = this.getAttribute('data-action');
+                    const sectionType = this.getAttribute('data-section');
+                    
+                    let section = null;
+                    if (sectionType === 'qualitative') section = qualitativeSection;
+                    else if (sectionType === 'comparison') section = comparisonSection;
+                    
+                    if (!section) return;
+                    
+                    // Pause all sections first when playing or restarting
+                    if (action === 'play' || action === 'restart') {
+                        pauseAllControlledSections();
                     }
                     
-                    // Always ensure teaser video continues playing regardless of space bar activity
-                    if (teaserVideo && teaserVideo.paused) {
-                        teaserVideo.play().catch(e => console.log("Couldn't restart teaser video after space bar:", e));
-                    }
-                }
+                    // Apply action to videos in this section
+                    section.querySelectorAll('video').forEach(video => {
+                        if (isSpecialVideo(video)) return;
+                        
+                        // Ensure video is loaded before playing
+                        if (video.preload === 'none') {
+                            video.preload = 'metadata';
+                            video.load();
+                        }
+                        
+                        if (action === 'restart') {
+                            video.currentTime = 0;
+                            video.play().catch(() => {});
+                        } else if (action === 'play') {
+                            video.play().catch(() => {});
+                        } else if (action === 'stop') {
+                            video.pause();
+                        }
+                    });
+                });
             });
         });
     </script>
@@ -750,65 +616,6 @@
         });
     </script>
 
-    <!-- Note Section -->
-    <div class="container">
-        <div class="note-section">
-            <div class="note-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="12" y1="8" x2="12" y2="12"></line>
-                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                </svg>
-            </div>
-            <div class="note-content">
-                <span class="note-title">Note:</span> Please see Supplementary for more qualitative results, motivation experiments, ablation studies and limitation examples.
-            </div>
-        </div>
-    </div>
-
-    <style>
-        .note-section {
-            background: rgba(255, 152, 0, 0.08);
-            border-left: 4px solid #ff9800;
-            padding: 12px 20px;
-            margin: 10px 0 5px 0;
-            display: flex;
-            align-items: center;
-            border-radius: 4px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-        
-        .note-icon {
-            color: #ff9800;
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-        
-        .note-content {
-            color: #333;
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-        
-        .note-title {
-            font-weight: 600;
-            color: #ff9800;
-        }
-        
-        @media (max-width: 768px) {
-            .note-section {
-                padding: 10px 15px;
-            }
-            
-            .note-icon {
-                margin-right: 12px;
-            }
-            
-            .note-content {
-                font-size: 0.95rem;
-            }
-        }
-    </style>
     
     <div class="container">
 
@@ -873,7 +680,14 @@
         
         <!-- Qualitative Results Section -->
         <section class="section-container qualitative-section">
-            <h2 style="margin-top: 1.5rem;">Qualitative Results</h2>
+            <div class="section-header-with-controls">
+                <h2 style="margin: 0;">Qualitative Results</h2>
+                <div class="video-controls">
+                    <button class="control-btn restart-btn" data-action="restart" data-section="qualitative" title="Restart">↻</button>
+                    <button class="control-btn play-btn" data-action="play" data-section="qualitative" title="Play">▶</button>
+                    <button class="control-btn stop-btn" data-action="stop" data-section="qualitative" title="Stop">⏹</button>
+                </div>
+            </div>
             <div class="divider"></div>
             <div class="section-description">
                 <p>Comprehensive showcase of our method's performance across diverse scenarios and challenging cases. All experiments are conducted with <b>CogVideoX-5B I2V</b> architecture.</p>
@@ -887,14 +701,14 @@
             <div class="qualitative-grid compact-grid">
                 <!-- Row 1 -->
                 <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/qualitative_results/vlogger_corgi/loop1/comparison_1x2_t:30_g:10.0_k:1000.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <p class="video-description">A corgi sits on a blue beach towel, holding a selfie stick with a GoPro</p>
                 </div>
                 <!-- <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/qualitative_results/vlogger_corgi/loop2/comparison_1x2_t:30_k:20_g:8.0_p:3.8.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -909,14 +723,14 @@
 
                 <!-- Row 2 -->
                 <!-- <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/qualitative_results/vlogger_corgi/loop3/comparison_1x2_t:30_k:5_g:8.0_p:2.2.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <p class="video-description">A corgi sits on a blue beach towel, holding a selfie stick with a GoPro </p>
                 </div>
                 <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/qualitative_results/vlogger_corgi/loop4/comparison_1x2_t:30_k:20_g:8.0_p:3.0.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -931,14 +745,14 @@
 
                 <!-- Row 3 -->
                 <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/qualitative_results/vlogger_corgi/wave1/comparison_1x2_t:30_k:50_g:8.0_p:1.0.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <p class="video-description">A corgi sits on a blue beach towel, holding a selfie stick with a GoPro</p>
                 </div>
                 <!-- <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/qualitative_results/vlogger_corgi/zoom_out/comparison_1x2_t:30_k:1000_g:8.0_p:3.0.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -953,14 +767,14 @@
 
                 <!-- Row 4 -->
                 <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/qualitative_results/reading_cat/loop1/comparison_1x2_t:30_k:500_g:10.0_p:8.0.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <p class="video-description">Cat wearing thick round glasses sits on a crimson velvet armchair</p>
                 </div>
                 <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/qualitative_results/reading_cat/loop2/comparison_1x2_t:30_k:1000_g:10.0_p:6.0.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -975,14 +789,14 @@
 
                 <!-- Row 5 -->
                 <!-- <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/qualitative_results/reading_cat/wave1/comparison_1x2_t:30_k:1_g:8.0_p:1.5.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <p class="video-description">Cat wearing thick round glasses sits on a crimson velvet armchair</p>
                 </div> -->
                 <!-- <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/qualitative_results/reading_cat/loop3/comparison_1x2_g:2.8_t:30.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -997,14 +811,14 @@
 
                 <!-- Row 6 -->
                 <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/qualitative_results/van_gogh/loop1/comparison_1x2_t:30_k:100000_g:10.0_p:3.0.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <p class="video-description">Van Gogh sits at a grand wooden desk</p>
                 </div>
                 <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/qualitative_results/van_gogh/wave1/comparison_1x2_t:30_k:9_g:8.0_p:4.5.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -1019,14 +833,14 @@
 
                 <!-- Row 7 -->
                 <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/qualitative_results/monkey/loop1/comparison_1x2_t:30_k:20_g:5.0_p:2.0.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <p class="video-description">A monkey wearing red cap and a puffy blue vest sits atop a bench</p>
                 </div>
                 <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/qualitative_results/monkey/zoom_out/comparison_1x2_t:30_k:5_g:8.0_p:3.0.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -1041,14 +855,14 @@
 
                 <!-- Row 8 -->
                 <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/qualitative_results/corgi_beach/loop1/comparison_1x2_t:30_k:3000_g:2.9_p:2.9.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <p class="video-description">A confident corgi walks along the shoreline</p>
                 </div>
                 <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/qualitative_results/corgi_beach/wave1/comparison_1x2_g:2.8_t:30.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -1069,14 +883,14 @@
             <div class="qualitative-grid compact-grid">            
                 <!-- Row 1 -->
                 <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/qualitative_results/deadpool/comparison_1x2_t:30_k:20_g:11.0_p:2.7.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <p class="video-description">A masked figure in suit stands against the of a modern cityscape</p>
                 </div>
                 <!-- <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/qualitative_results/deadpool/comparison_1x2_t:30_k:1000000_g:15.0_p:2.9_new_mask.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -1090,14 +904,14 @@
                 </div> -->
                 <!-- Row 2 -->
                 <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/strip/scarface.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <p class="video-description">Two men are engaged in a serious conversation in front of an ornate building</p>
                 </div>
                 <!-- <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/qualitative_results/scarface/oscillating_wave/comparison_1x2_t:30_k:4_g:3.0_p:1.0_t:-1.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -1113,14 +927,14 @@
                  -->
                 <!-- Row 3 -->
                 <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/strip/walk.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <p class="video-description">A police officer in uniform, accompanied by two men in mid-20th century overcoats and hats</p>
                 </div>
                 <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/strip/ocean.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -1135,14 +949,14 @@
 
                 <!-- Row 4 -->
                 <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/strip/dwight.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <p class="video-description">A cluttered mid-sized corporate office filled with standard office furnishings and supplies</p>
                 </div>
                 <!-- <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/strip/dwight2.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -1157,14 +971,14 @@
 
                 <!-- Row 5 -->
                 <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/qualitative_results/hobbit/comparison_1x2_t:30_k:5_g:25.0_p:1.0_t:-1_fena_degil.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <p class="video-description">Two hobbits dressed in worn cloaks sit among rugged, rocky terrain under a muted, overcast light</p>
                 </div>
                 <!-- <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/qualitative_results/without-doubt/comparison_1x2_t:30_k:3_g:25.0_p:1.0_t:-1_fena_degil.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -1188,14 +1002,14 @@
             <div class="qualitative-grid compact-grid">            
                 <!-- Row 1 -->
                 <!-- <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/openvid/bride.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <p class="video-description">A woman with light brown hair and a white headscarf is captured mid-song</p>
                 </div> -->
                 <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/openvid/teacher.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -1209,14 +1023,14 @@
                 </div> -->
                 <!-- Row 2 -->
                 <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/openvid/handsome_man.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <p class="video-description">A man in a beige suit and green shirt is seated at a table, engaging in a serious conversation</p>
                 </div>
                 <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/openvid/angry.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -1232,14 +1046,14 @@
                 
                 <!-- Row 3 -->
                 <!-- <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/openvid/depp.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <p class="video-description">A man with shoulder-length brown hair, wearing a dark blazer over a purple shirt, is seated in a professional setting</p>
                 </div> -->
                 <!-- <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/openvid/singer.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -1254,14 +1068,14 @@
 
                 <!-- Row 4 -->
                 <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/openvid/crazy.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <p class="video-description">A cluttered mid-sized corporate office filled with standard office furnishings and supplies</p>
                 </div>
                 <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/openvid/driver.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -1276,14 +1090,14 @@
 
                 <!-- Row 5 -->
                 <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/openvid/comparison_1x2_t:30_k:2_g:3.0_p:1.0_t:-1.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <p class="video-description">A woman with long, straight blonde hair and bangs is seated in a dark green booth, wearing a black top</p>
                 </div>
                 <!-- <div class="video-container compact-container">
-                    <video loop muted>
+                    <video loop muted preload="none">
                         <source src="videos/openvid/comparison_1x2_t:30_k:2_g:10.0_p:1.0_t:-1.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -1361,7 +1175,14 @@
 
         <!-- Qualitative Comparison Section -->
         <section class="section-container comparison-section">
-            <h2 class="comparison-title" style="margin-top: 1.5rem;">Qualitative Comparisons</h2>
+            <div class="section-header-with-controls">
+                <h2 class="comparison-title" style="margin: 0;">Qualitative Comparisons</h2>
+                <div class="video-controls">
+                    <button class="control-btn restart-btn" data-action="restart" data-section="comparison" title="Restart">↻</button>
+                    <button class="control-btn play-btn" data-action="play" data-section="comparison" title="Play">▶</button>
+                    <button class="control-btn stop-btn" data-action="stop" data-section="comparison" title="Stop">⏹</button>
+                </div>
+            </div>
             <div class="divider"></div>
             <div class="section-description">
                 <p>Side-by-side comparisons of our method with state-of-the-art approaches across diverse scenarios.</p>
@@ -1380,7 +1201,7 @@
                         <div class="video-container">
                             <h3>Original Video</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0009/control_input.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1391,7 +1212,7 @@
                         <div class="video-container">
                             <h3>3D Point Cloud Rendering</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0009/render.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1402,7 +1223,7 @@
                         <div class="video-container">
                             <h3>Generative Camera Dolly</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0009/GCD.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1413,7 +1234,7 @@
                         <div class="video-container">
                             <h3>TrajectoryAttention</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0009/TrajectoryAttention.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1424,7 +1245,7 @@
                         <div class="video-container">
                             <h3>Diffusion as Shader</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0009/DaS.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1435,7 +1256,7 @@
                         <div class="video-container">
                             <h3>TrajectoryCrafter</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0009/TrajectoryCrafter.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1446,7 +1267,7 @@
                         <div class="video-container">
                             <h3>ReCamMaster</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0009/ReCamMaster.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1457,7 +1278,7 @@
                         <div class="video-container">
                             <h3>Ours <span class="param">[K=3]</span></h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0009/output_t:30_k:3_g:10.0_p:1.0_t:-1.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1468,7 +1289,7 @@
                         <div class="video-container">
                             <h3>Ours <span class="param">[K=6]</span></h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0009/output_t:30_k:6_g:6.0_p:1.0_t:-1.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1483,7 +1304,7 @@
                         <div class="video-container">
                             <h3>Original Video</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0095/control_input.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1494,7 +1315,7 @@
                         <div class="video-container">
                             <h3>3D Point Cloud Rendering</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0095/render.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1505,7 +1326,7 @@
                         <div class="video-container">
                             <h3>Generative Camera Dolly</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0095/GCD.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1516,7 +1337,7 @@
                         <div class="video-container">
                             <h3>TrajectoryAttention</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0095/TrajectoryAttention.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1527,7 +1348,7 @@
                         <div class="video-container">
                             <h3>Diffusion as Shader</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0095/DaS.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1538,7 +1359,7 @@
                         <div class="video-container">
                             <h3>TrajectoryCrafter</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0095/TrajectoryCrafter.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1549,7 +1370,7 @@
                         <div class="video-container">
                             <h3>ReCamMaster</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0095/ReCamMaster.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1560,7 +1381,7 @@
                         <div class="video-container">
                             <h3>Ours <span class="param">[K=3]</span></h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0095/output_t:30_k:3_g:12.0_p:1.0_t:-1.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1571,7 +1392,7 @@
                         <div class="video-container">
                             <h3>Ours <span class="param">[K=6]</span></h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0095/output_t:30_k:6_g:10.0_p:1.0_t:-1.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1586,7 +1407,7 @@
                         <div class="video-container">
                             <h3>Original Video</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0481/control_input.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1597,7 +1418,7 @@
                         <div class="video-container">
                             <h3>3D Point Cloud Rendering</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0481/render.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1608,7 +1429,7 @@
                         <div class="video-container">
                             <h3>Generative Camera Dolly</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0481/GCD.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1619,7 +1440,7 @@
                         <div class="video-container">
                             <h3>TrajectoryAttention</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0481/TrajectoryAttention.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1630,7 +1451,7 @@
                         <div class="video-container">
                             <h3>Diffusion as Shader</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0481/DaS.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1641,7 +1462,7 @@
                         <div class="video-container">
                             <h3>TrajectoryCrafter</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0481/TrajectoryCrafter.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1652,7 +1473,7 @@
                         <div class="video-container">
                             <h3>ReCamMaster</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0481/ReCamMaster.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1663,7 +1484,7 @@
                         <div class="video-container">
                             <h3>Ours <span class="param">[K=2]</span></h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0481/output_t:30_k:2_g:3.0_p:1.0_t:-1.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1674,7 +1495,7 @@
                         <div class="video-container">
                             <h3>Ours <span class="param">[K=3]</span></h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0481/output_t:30_k:3_g:10.0_p:1.0_t:-1.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1690,7 +1511,7 @@
                         <div class="video-container">
                             <h3>Original Video</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0133/control_input.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1701,7 +1522,7 @@
                         <div class="video-container">
                             <h3>3D Point Cloud Rendering</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0133/render.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1712,7 +1533,7 @@
                         <div class="video-container">
                             <h3>Generative Camera Dolly</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0133/GCD.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1723,7 +1544,7 @@
                         <div class="video-container">
                             <h3>TrajectoryAttention</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0133/TrajectoryAttention.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1734,7 +1555,7 @@
                         <div class="video-container">
                             <h3>Diffusion as Shader</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0133/DaS.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1745,7 +1566,7 @@
                         <div class="video-container">
                             <h3>TrajectoryCrafter</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0133/TrajectoryCrafter.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1756,7 +1577,7 @@
                         <div class="video-container">
                             <h3>ReCamMaster</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0133/ReCamMaster.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1767,7 +1588,7 @@
                         <div class="video-container">
                             <h3>Ours <span class="param">[K=2]</span></h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0133/output_t:30_k:2_g:10.0_p:1.0_t:-1.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1778,7 +1599,7 @@
                         <div class="video-container">
                             <h3>Ours <span class="param">[K=3]</span></h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0133/output_t:30_k:3_g:10.0_p:1.0_t:-1.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1792,7 +1613,7 @@
                         <div class="video-container">
                             <h3>Original Video</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0478/control_input.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1803,7 +1624,7 @@
                         <div class="video-container">
                             <h3>3D Point Cloud Rendering</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0478/render.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1814,7 +1635,7 @@
                         <div class="video-container">
                             <h3>Generative Camera Dolly</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0478/GCD.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1825,7 +1646,7 @@
                         <div class="video-container">
                             <h3>TrajectoryAttention</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0478/TrajectoryAttention.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1836,7 +1657,7 @@
                         <div class="video-container">
                             <h3>Diffusion as Shader</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0478/DaS.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1847,7 +1668,7 @@
                         <div class="video-container">
                             <h3>TrajectoryCrafter</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0478/TrajectoryCrafter.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1858,7 +1679,7 @@
                         <div class="video-container">
                             <h3>ReCamMaster</h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0478/ReCamMaster.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1869,7 +1690,7 @@
                         <div class="video-container">
                             <h3>Ours <span class="param">[K=2]</span></h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0478/output_t:30_k:2_g:20.0_p:1.0_t:-2.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -1880,7 +1701,7 @@
                         <div class="video-container">
                             <h3>Ours <span class="param">[K=6]</span></h3>
                             <div class="video-wrapper">
-                                <video loop muted>
+                                <video loop muted preload="none">
                                     <source src="videos/qualitative_comparison/0478/output_t:30_k:5_g:20.0_p:1.0_t:-2.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -2208,11 +2029,6 @@
                 showGrid(0);
             });
         </script>
-
-        <footer>
-            <div class="divider"></div>
-            <p>Dynamic View Synthesis as an Inverse Problem</p>
-        </footer>
     </section>
 </div>
 
@@ -2583,6 +2399,65 @@
     }
 </style>
 
+    <!-- BibTeX Section -->
+    <section class="bibtex-section">
+        <div class="container">
+            <h2>BibTeX</h2>
+        </div>
+        <div class="bibtex-wrapper">
+            <button class="copy-button" onclick="copyBibtex()" title="Copy to clipboard">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+            </button>
+            <pre class="bibtex-code"><code id="bibtex-content">@article{yesiltepe2025dynamic,
+  title={Dynamic View Synthesis as an Inverse Problem},
+  author={Yesiltepe, Hidir and Yanardag, Pinar},
+  journal={arXiv preprint arXiv:2506.08004},
+  year={2025}
+}</code></pre>
+        </div>
+    </section>
+    
+    
+
+    <script>
+        function copyBibtex() {
+            const bibtexContent = document.getElementById('bibtex-content').textContent;
+            navigator.clipboard.writeText(bibtexContent).then(() => {
+                const button = document.querySelector('.copy-button');
+                const originalHTML = button.innerHTML;
+                button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+                button.style.color = '#27ae60';
+                setTimeout(() => {
+                    button.innerHTML = originalHTML;
+                    button.style.color = '';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+        
+        // More Research dropdown toggle
+        function toggleResearchDropdown() {
+            const dropdown = document.querySelector('.more-research-dropdown');
+            dropdown.classList.toggle('open');
+        }
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.querySelector('.more-research-dropdown');
+            if (!dropdown.contains(event.target)) {
+                dropdown.classList.remove('open');
+            }
+        });
+    </script>
+    
+    <footer>
+        <div class="divider" style="margin: 0 auto 0.5rem; width: 80px;"></div>
+        <p>Dynamic View Synthesis as an Inverse Problem</p>
+    </footer>
 
 </body>
 </html> 
