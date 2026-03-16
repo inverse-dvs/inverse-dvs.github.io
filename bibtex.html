@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BibTeX – Dynamic View Synthesis as an Inverse Problem</title>
+    <style>
+        :root {
+            color-scheme: dark;
+        }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+            font-family: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+        .bibtex-box {
+            background: #111;
+            color: #f5f5f5;
+            padding: 2.5rem 3.5rem 2.5rem 3rem;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
+            max-width: 90vw;
+            overflow-x: auto;
+            white-space: pre;
+            position: relative;
+        }
+        .copy-button {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.5rem;
+            background: transparent;
+            border: none;
+            color: #888;
+            cursor: pointer;
+            padding: 0.2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s ease, transform 0.1s ease;
+        }
+        .copy-button:hover {
+            color: #fff;
+            transform: translateY(-1px);
+        }
+        @media (max-width: 768px) {
+            .bibtex-box {
+                padding: 2rem 2.25rem 2rem 1.75rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="bibtex-box">
+    <button class="copy-button" onclick="copyBibtex()" title="Copy to clipboard">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </svg>
+    </button>
+@article{yesiltepe2025dynamic,
+  title={Dynamic view synthesis as an inverse problem},
+  author={Yesiltepe, Hidir and Yanardag, Pinar},
+  journal={arXiv preprint arXiv:2506.08004},
+  year={2025}
+}
+</div>
+<script>
+    function copyBibtex() {
+        const bibtexText = `@article{yesiltepe2025dynamic,
+  title={Dynamic view synthesis as an inverse problem},
+  author={Yesiltepe, Hidir and Yanardag, Pinar},
+  journal={arXiv preprint arXiv:2506.08004},
+  year={2025}
+}`;
+        navigator.clipboard.writeText(bibtexText).then(() => {
+            const button = document.querySelector('.copy-button');
+            const originalHTML = button.innerHTML;
+            button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+            button.style.color = '#27ae60';
+            setTimeout(() => {
+                button.innerHTML = originalHTML;
+                button.style.color = '';
+            }, 2000);
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    }
+</script>
+</body>
+</html>
+
